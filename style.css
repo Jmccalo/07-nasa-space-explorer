@@ -142,3 +142,137 @@ button:hover {
   font-size: 48px;
   margin-bottom: 20px;
 }
+/* NASA-ish color accents */
+:root {
+  --nasa-blue: #0b3d91;
+  --nasa-red: #fc3d21;
+  --ink: #212121;
+}
+
+.site-header h1 { color: var(--ink); }
+button { background-color: var(--nasa-blue); color: #fff; border-color: transparent; }
+button:hover { background-color: #072b66; }
+
+/* Status + fact strip */
+.status {
+  text-align: center;
+  margin: 10px 20px 0;
+  color: var(--ink);
+  min-height: 24px;
+}
+.space-fact {
+  background: #fff;
+  border-left: 4px solid var(--nasa-red);
+  margin: 10px 20px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Hover zoom (LevelUp) */
+.gallery-item .thumb-wrap {
+  overflow: hidden;
+  border-radius: 4px;
+}
+.gallery-item img.zoom {
+  transition: transform 250ms ease;
+}
+.gallery-item:hover img.zoom {
+  transform: scale(1.05);
+}
+
+/* Modal */
+/* Modal wrapper covers the viewport */
+.modal { 
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 999;              /* on top of page stuff */
+  font-family: Arial, sans-serif;
+}
+.modal[aria-hidden="false"] { 
+  display: block; 
+}
+
+/* Dark backdrop behind the modal */
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+}
+
+/* The white dialog box */
+.modal-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* center */
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  width: 90%;
+  max-width: 900px;
+
+  /* NEW: make sure it never grows taller than the screen,
+     and allow internal scrolling */
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 16px 16px 48px; /* bottom padding so text doesn't hit edge near the bottom */
+  position: relative;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* Scrollable body area inside modal */
+.modal-body {
+  overflow-y: auto;      /* <-- THIS enables scrolling */
+  padding-right: 8px;    /* little space so scrollbar doesn’t overlap text */
+  flex: 1;               /* take up remaining height */
+  min-height: 0;         /* required for flex children to shrink properly */
+}
+
+/* Media at the top of modal */
+.modal-media {
+  width: 100%;
+}
+.modal-media img,
+.modal-media iframe,
+.modal-media video {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  max-height: 60vh;
+  object-fit: contain;
+  background: #000;
+}
+
+/* Title/date/text styles */
+.modal-title {
+  margin-top: 12px;
+  color: var(--nasa-blue);
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+.modal-date {
+  font-size: 14px;
+  color: #666;
+  margin: 4px 0 10px;
+}
+.modal-explain {
+  line-height: 1.6;
+  font-size: 15px;
+  color: #333;
+  white-space: normal;
+}

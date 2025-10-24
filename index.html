@@ -16,8 +16,14 @@
     <div class="filters">
       <input type="date" id="startDate" />
       <input type="date" id="endDate" />
-      <button>Get Space Images</button>
+      <button id="getImagesBtn" type="button">Get Space Images</button>
     </div>
+
+    <!-- Random Space Fact (LevelUp - optional) -->
+    <div id="spaceFact" class="space-fact" aria-live="polite"></div>
+
+    <!-- Loading / Error messages -->
+    <div id="status" class="status" aria-live="polite"></div>
 
     <div id="gallery" class="gallery">
       <div class="placeholder">
@@ -25,6 +31,23 @@
         <p>Select a date range and click "Get Space Images" to explore the cosmos!</p>
       </div>
     </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal" aria-hidden="true">
+  <div class="modal-backdrop" data-close="true"></div>
+
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" aria-label="Close" data-close="true">✕</button>
+
+    <div class="modal-body">
+      <div id="modalMedia" class="modal-media"></div>
+      <h2 id="modalTitle" class="modal-title"></h2>
+      <p id="modalDate" class="modal-date"></p>
+      <p id="modalExplain" class="modal-explain"></p>
+    </div>
+  </div>
+</div>
+
   </div>
 
   <script src="js/dateRange.js"></script>
